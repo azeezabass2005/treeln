@@ -36,13 +36,13 @@ jobs:
         run: |
           cd target/${{ matrix.target }}/release
           tar czf ${{ matrix.name }}.tar.gz treeln
-          mv ${{ matrix.name }}.tar.gz ../../../
+          mv ${{ matrix.name }}.tar.gz $GITHUB_WORKSPACE/
 
       - if: runner.os == 'Windows'
         run: |
           cd target/${{ matrix.target }}/release
-          7z a ../../../${{ matrix.name }} treeln.exe
+          7z a $env:GITHUB_WORKSPACE\${{ matrix.name }} treeln.exe
 
       - uses: softprops/action-gh-release@v2
         with:
-          files: treeln*
+          files: treeln-*
