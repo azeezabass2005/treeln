@@ -152,7 +152,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tree-rs"
+name = "treeln"
 version = "0.1.0"
 dependencies = [
  "clap",
